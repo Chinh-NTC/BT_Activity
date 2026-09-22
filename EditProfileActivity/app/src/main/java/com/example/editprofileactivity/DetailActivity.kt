@@ -27,10 +27,16 @@ class DetailActivity : AppCompatActivity() {
             insets
         }
 
-        // 4. Lấy dữ liệu được truyền qua Intent từ MainActivity
-        val receivedName = intent.getStringExtra("USER_NAME") ?: "Không nhận được tên"
+        // ... (Giữ nguyên các đoạn code setOnApplyWindowInsetsListener ở trên)
 
-        // 5. Hiển thị dữ liệu lên TextView (id là tvMessage)
-        binding.tvMessage.text = "Xin chào, $receivedName!"
+// 1. Nhận toàn bộ dữ liệu truyền sang
+        val receivedName = intent.getStringExtra("USER_NAME") ?: "Chưa cập nhật"
+        val receivedId = intent.getStringExtra("STUDENT_ID") ?: "Chưa cập nhật"
+        val receivedClass = intent.getStringExtra("CLASS_NAME") ?: "Chưa cập nhật"
+
+// 2. Trình bày dữ liệu lên màn hình chi tiết
+        binding.tvDetailName.text = "Họ và tên: $receivedName"
+        binding.tvDetailId.text = "Mã sinh viên: $receivedId"
+        binding.tvDetailClass.text = "Lớp học: $receivedClass"
     }
 }

@@ -30,9 +30,11 @@ class MainActivity : AppCompatActivity() {
 
         // 3. Xử lý sự kiện click mở DetailActivity kèm thông tin
         binding.btnOpenDetail.setOnClickListener {
-            val intent = Intent(this, DetailActivity::class.java)
-            // Truyền tên thật của bạn vào Intent
-            intent.putExtra("USER_NAME", "Nguyễn Tấn Chinh")
+            val intent = Intent(this, DetailActivity::class.java).apply {
+                putExtra("USER_NAME", "Nguyễn Tấn Chinh")
+                putExtra("STUDENT_ID", "2415053122301")
+                putExtra("CLASS_NAME", "24T3")
+            }
             startActivity(intent)
         }
     }
